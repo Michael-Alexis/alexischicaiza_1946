@@ -65,18 +65,28 @@ int ordenarBurbujav3(int v[], int n){
     }
         return contador;
 }
+void mejorvercion(int n1, int n2, int n3){
+if(n1>n2){
+    
+}
+}
 main(){
-    int ne;
+    int ne,v1,v2,v3;
     cout<<"Numero de elementos: ";
     cin>>ne;
 int vec[ne];
+int ve[ne];
 llenarVector(vec,ne);
 cout<<"Vector original: "<<endl;
 verDatos(vec,ne);
-ordenarBurbujav1(vec,ne);
-cout<<"El nro de comparacionde elementos v1 :"<<ordenarBurbujav1(vec,ne)<<endl;
-cout<<"El nro de comparacionde elementos v2 :"<<ordenarBurbujav2(vec,ne)<<endl;
-cout<<"El nro de comparacionde elementos v3 :"<<ordenarBurbujav3(vec,ne)<<endl;
+v1=ordenarBurbujav1(vec,ne);
+cout<<"El nro de comparacionde elementos v2 :"<<v1<<endl;
+v2=ordenarBurbujav1(vec,ne);
+cout<<"El nro de comparacionde elementos v2 :"<<v2<<endl;
+v3=ordenarBurbujav1(vec,ne);
+cout<<"El nro de comparacionde elementos v3 :"<<v3<<endl;
+
 cout<<"Vector ordenado: "<<endl;
 verDatos(vec,ne);
+mejorvercion(v1,v2,v3);
 }
