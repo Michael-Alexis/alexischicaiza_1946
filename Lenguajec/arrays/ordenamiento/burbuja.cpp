@@ -67,11 +67,11 @@ void mejor(int a ,int b,int c){
 if( a == b && a==c ){
 cout << "Todos son iguales" << endl;
 }else if(a<=b && a<=c ){
- cout << "El número v1 " <<a<<" es mayor"<<endl;
+ cout << "El número de la vercion v1 " <<a<<" es mas optimo"<<endl;
 }else if(b<=a && b<=c){
-cout << "El numero v2 " <<b<<" es mayor"<<endl;
+cout << "El numero vercion v2 " <<b<<" es mas optimo"<<endl;
 }else if (c<=a && c<=b){
-cout << "El número de la v3 " <<c<<" es mayot"<<endl;
+cout << "El número de la vercion v3 " <<c<<" es mas optimo"<<endl;
 }
 }
 int main(){
