@@ -66,8 +66,8 @@ int ordenarBurbujav3(int v[], int n){
         return contador;
 }
 void mejorvercion(int n1, int n2, int n3){
-if(n1>n2){
-    
+if(n1>n2 && n1>n3){
+
 }
 }
 main(){
