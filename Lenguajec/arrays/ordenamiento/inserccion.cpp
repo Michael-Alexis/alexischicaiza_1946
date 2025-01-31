@@ -20,12 +20,12 @@ void llenarVector(int v[], int n)
 }
 int insercion(int v[], int n)
 {
-    int aux, cont, j;
-    for (int i = 0; i < n; i++)
+    int aux, cont=0, j;
+    for (int i = 1; i < n; i++)
     {
         aux = v[i];
         j = i - 1;
-        while (j > 0)
+        while (j >= 0)
         {
             cont++;
             if (aux < v[j])
@@ -33,6 +33,7 @@ int insercion(int v[], int n)
                 v[j + 1] = v[j];
                 v[j] = aux;
             }
+            j--;
         }
     }
     return cont;
