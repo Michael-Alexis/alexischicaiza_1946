@@ -14,10 +14,9 @@ void llenarVector(int v[],int n){
        cin>>v[i];
     }
 } 
-int ordenarseleccion(int v[],int n){
+int ordenarSeleccionv1(int v[],int n){
     int contar=0,aux;
-    bool cambio=true;
-    for (int i = 0; i < n-1 && cambio; i++)
+    for (int i = 0; i < n-1; i++)
     {
         for (int  j = i+1; j < n; j++)
         {
@@ -34,18 +33,41 @@ int ordenarseleccion(int v[],int n){
     }
     return contar;
 }
+int ordenarSeleccionv2(int v[],int n){
+    int contar=0,aux;
+    bool cambio=true;    
+    for (int i = 0; i < n-1 && cambio; i++)
+    {
+        cambio=false;
+        for (int  j = i+1; j < n; j++)
+        {
+            contar++;
+            if (v[i]>v[j])
+            {
+                aux=v[i];
+                v[i]=v[j];
+                v[j]=aux;
+                cambio=true;
+            }
+            
+        }
+        
+    }
+    return contar;
+}
+
  main(){
-        int ne ,comparaciones;
+        int ne ,comp,compa;
     cout<<"Numero de elementos: ";
     cin>>ne;
 int vec[ne];
 llenarVector(vec,ne);
 cout<<"vector original: \n";
 verDatos(vec,ne);
-comparaciones = ordenarseleccion(vec,ne);
+comp = ordenarSeleccionv1(vec,ne);
+compa = ordenarSeleccionv2(vec,ne);
 cout<<"\nvector ordenado: ";
 verDatos(vec,ne);
-cout<<" \n El numero de comparaciones:"<<comparaciones;
+cout<<" \n El numero de comparaciones:"<<comp;
+cout<<" \n El numero de comparaciones:"<<compa;
  }
-
- 

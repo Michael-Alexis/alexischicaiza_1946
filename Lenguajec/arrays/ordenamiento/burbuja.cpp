@@ -57,7 +57,7 @@ int ordenarBurbujav3(int v[], int n){
                     aux=v[j];
                     v[j]=v[j+1];
                     v[j+1]=aux;
-                    cambio=false;
+                    cambio=true;
                 }
         }
           mejora++;
