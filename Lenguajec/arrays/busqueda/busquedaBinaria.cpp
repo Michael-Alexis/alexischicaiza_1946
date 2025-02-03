@@ -64,15 +64,17 @@ bool isEncontradov2(int v[], int n, int elemento){
     int i;
     int Iabajo = 0, Iarriba = n - 1, Icentro;
     Icentro = (Iarriba + Iabajo) / 2;
-      if (v[Icentro == elemento])
+      if (v[Icentro] == elemento)
     {
         return true;
+         cout<<"Elemento encontrado";
+
     }
     else if (v[Icentro] > elemento)
     {
         Iarriba = Icentro;
         Icentro = (Iarriba + Iabajo) / 2;
-        cout<<"";
+        cout<<"mas arriva";
          return false;
     }else if(v[Icentro] < elemento){
             Iarriba = Icentro;
@@ -92,5 +94,4 @@ main()
     verDatos(vec, ne);
     cout << "Ingresa el datos a buscar :";
     cin >> dato;
-    (isbusquedaBinaria(vec,5,dato))?cout<<"El elemento esta en el array":cout<<"El elemento no existe";
 }
