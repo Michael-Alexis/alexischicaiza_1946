@@ -10,6 +10,7 @@ main()
     int vector[ne];
     cout << "Ingresa el datos a buscar :"; 
     cin >> elemento;
+    
     llenarVector(vector,ne);
     ordenarBurbujav3(vector,ne);
     verVector(vector,ne);

@@ -55,10 +55,12 @@ namespace vectorn
         }
         else if (v[centro] < elemento )
         {
+            cout<<"\nUNnumero menor";
             abajo = centro + 1;
         }
         else
         {
+            cout<<"\nUNnumero mayor";
             arriba=centro-1;
         }
     }
