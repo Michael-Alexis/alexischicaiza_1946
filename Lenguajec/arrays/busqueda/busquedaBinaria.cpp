@@ -79,6 +79,7 @@ bool isEncontradov2(int v[], int n, int elemento){
     }else if(v[Icentro] < elemento){
             Iarriba = Icentro;
             Icentro = (Iarriba + Iabajo) / 2;
+            cout<<"mas abajo";
             return false;
         }
 }
