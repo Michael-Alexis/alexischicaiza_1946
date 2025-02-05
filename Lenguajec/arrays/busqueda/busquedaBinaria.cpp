@@ -1,98 +1,74 @@
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
 using namespace std;
-void llenaDatos(int v[], int n){
+bool isEncontradov1(int v[], int n, int elemento)
+{
+    bool encontrado = false;
     for (int i = 0; i < n; i++)
     {
-        v[i]=(i+1)*2;
-    }
-    
-}
-int ordenarBurbujav3(int v[], int n)
-{
-    int mejora = 1;
-    bool cambio = true;
-    int aux, contador = 0;
-    for (int i = 0; i < n && cambio; i++)
-    {
-        cambio = false;
-        for (int j = 0; j < n - mejora; j++)
+        if (v[i] == elemento)
         {
-            contador++;
-            if (v[j] > v[j + 1])
-            {
-                aux = v[j];
-                v[j] = v[j + 1];
-                v[j + 1] = aux;
-                cambio = true;
-            }
+            encontrado = true;
+            break;
         }
-        mejora++;
     }
-    return contador;
+    return encontrado;
 }
-void verDatos(int v[], int ne)
+bool isEncontradov2(int v[], int n, int elemento)
 {
-    cout << "Los elemenetos del vector son: " << endl;
-    for (int i = 0; i < ne; i++)
+    // bool encontrado=false;
+    for (int i = 0; i < n; i++)
+    {
+        if (v[i] == elemento)
+        {
+            // encontrado=true;
+            // break;
+            return true;
+        }
+    }
+    return false;
+}
+void llenaDatos(int v[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        v[i] = (i + 1) * 3;
+    }
+}
+void verElementos(int v[], int n)
+{
+    for (int i = 0; i < n; i++)
     {
         cout << v[i] << "\t";
     }
 }
-bool isbusquedaBinaria(int v[], int n, int elemento)
+bool isBusquedab(int v[], int n, int elemento)
 {
-    int Iabajo = 0, Iarriba = n - 1, Icentro;
-    Icentro = (Iarriba + Iabajo) / 2;
-    if (v[Icentro == elemento])
+    int inf = 0, sup = n - 1, mitad;
+    while (inf <= sup)
     {
-        return true;
-    }
-    else if (v[Icentro] > elemento)
-    {
-        Iarriba = Icentro;
-        Icentro = (Iarriba + Iabajo) / 2;
-         return false;
-    }else if(v[Icentro] < elemento){
-            Iarriba = Icentro;
-            Icentro = (Iarriba + Iabajo) / 2;
-            return false;
+        mitad = (inf + sup) / 2;
+        if (v[mitad] == elemento)
+        {
+            return true;
         }
-        return false;
-}
-bool isEncontradov2(int v[], int n, int elemento){
-    int i;
-    int Iabajo = 0, Iarriba = n - 1, Icentro;
-    Icentro = (Iarriba + Iabajo) / 2;
-      if (v[Icentro] == elemento)
-    {
-        return true;
-         cout<<"Elemento encontrado";
-
-    }
-    else if (v[Icentro] > elemento)
-    {
-        Iarriba = Icentro;
-        Icentro = (Iarriba + Iabajo) / 2;
-        cout<<"mas arriva";
-         return false;
-    }else if(v[Icentro] < elemento){
-            Iarriba = Icentro;
-            Icentro = (Iarriba + Iabajo) / 2;
-            cout<<"mas abajo";
-            return false;
+        else if (elemento < v[mitad])
+        {
+            sup = mitad - 1;
         }
+        else
+        {
+            inf = mitad + 1;
+        }
+    }
+    return false;
 }
-    
 main()
 {
-    int ne, dato;
-    cout << "Numero de elementos: ";
-    cin >> ne;
-    int vec[ne];
-    llenaDatos(vec, ne);
-    ordenarBurbujav3(vec, ne);
-    verDatos(vec, ne);
+    int vector[5], dato;
+    llenaDatos(vector, 5);
     cout << "Ingresa el datos a buscar :";
     cin >> dato;
+    //(isEncontradov1(vector,5,dato))?cout<<"El elemento esta en el array\n":cout<<"El elemento no existe\n";
+    (isBusquedab(vector, 5, dato)) ? cout << "El elemento esta en el array\n" : cout << "El elemento no existe\n";
+    verElementos(vector, 5);
 }
