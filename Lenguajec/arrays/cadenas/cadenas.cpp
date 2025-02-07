@@ -17,7 +17,7 @@ int longitudCadena(char cad[])
 }
 int contarPalabras(char cad[])
 {
-    int palabras = 0 ;
+    int palabras = 0 ,ter;
     bool palabra=false;
     for (int i = 0; cad[i] != '\0'; i++)
     {
@@ -27,12 +27,18 @@ int contarPalabras(char cad[])
             palabra=true;
         }
     }
+
     (palabra)? palabras++: palabras;
-    return palabras -1;
+   ter=palabras -1;
+    if(ter==-1){
+        ter++;
+    } 
+    return ter;
 }
 main()
 {
     char palabras[50];
+    int ter;
     llenarCadena(palabras);
     cout << "La cadena ingresada es: " << palabras;
     cout << "\nLa cadena ingresada es: " << longitudCadena(palabras);
