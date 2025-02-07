@@ -23,12 +23,12 @@ int contarPalabras(char cad[])
     {
         if (cad[i] == ' ' && (cad[i + 1] != ' ' && (cad[i+1]!= '\0')))
         {
-            //palabras++;
+            palabras++;
             palabra=true;
         }
     }
     (palabra)? palabras++: palabras;
-    return palabras;
+    return palabras -1;
 }
 main()
 {
