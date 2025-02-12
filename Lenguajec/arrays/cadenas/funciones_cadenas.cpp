@@ -77,6 +77,7 @@ bool esMayusculas(char cad1[]){
     }
     return numerico;
 }
+/*
 bool esMinuscula(char cad1[]){
     bool numerico = true;
     for (int i = 0; i < strlen(cad1); i++)
@@ -88,6 +89,7 @@ bool esMinuscula(char cad1[]){
     }
     return numerico;
 }
+    */
 main()
 {
     char cad1[50], cad2[50], cad3[50];
@@ -108,5 +110,5 @@ main()
     (numerico(cad1)) ? cout << "\n La cadena " << cad1 << " es numerico" : cout << "\n La caden " << cad1 << " no es numerico";
     (espacio(cad1)) ? cout << "\n La cadena " << cad1 << " tiene espacio" : cout << "\n La caden " << cad1 << " no tiene espacio";
     (esMayusculas(cad1)) ? cout << "\n La cadena " << cad1 << " tiene espacio" : cout << "\n La caden " << cad1 << " no tiene espacio";
-    (esMinuscula(cad1)) ? cout << "\n La cadena " << cad1 << " tiene espacio" : cout << "\n La caden " << cad1 << " no tiene espacio";
+    //(esMinuscula(cad1)) ? cout << "\n La cadena " << cad1 << " tiene espacio" : cout << "\n La caden " << cad1 << " no tiene espacio";
 }
