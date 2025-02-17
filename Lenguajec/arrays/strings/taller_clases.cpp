@@ -18,7 +18,7 @@ void cambiarString(string &nombres){
     }
 
 }
-main(){
+int main(){
     string cadena;
     cout<<"Ingrese una cadena: ";
     getline(cin, cadena);
