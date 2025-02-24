@@ -37,7 +37,7 @@ int main(int argc, char const *argv[])
     int np;
     cout<<"Ingrese la cantidad de personas que desea ingresar: ";
     cin>>np;
-    persona personas[np];
+    persona personas[np],encontrada;
     ingresarRegistro(personas,np);
     mostrarRegistro(personas,np);
     return 0;

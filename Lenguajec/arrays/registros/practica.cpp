@@ -1,71 +1,115 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include "ahorcado.h"
-
 using namespace std;
 
-string palabraAleatoria(string palabras[]) {
-    srand(time(NULL));
-    return palabras[rand() % 5];
+struct persona
+{
+    int id;
+    string nombre;
+    int edad;
+    bool casado = false;
+};
+
+void ingresaDatosRegistro(persona per[], int n)
+{
+    char resp;
+    cin.ignore();
+    for (int i = 0; i < n; i++)
+    {
+        per[i].id = i + 1;
+        cout << "Ingrese nombre: ";
+        getline(cin, per[i].nombre);
+        cout << "Ingrese edad: ";
+        cin >> per[i].edad;
+        cout << "Es casado? (s/n)";
+        cin >> resp;
+        cin.ignore();
+
+        if (resp == 's' || resp == 'S')
+            per[i].casado = true;
+    }
 }
 
-int opciones() {
-    int op;
-    cout << "1. Deportes\n2. Animales\n3. Frutas\nSeleccione una categoría: ";
-    cin >> op;
-    return op;
+void mostraDatosRegistro(persona per[], int n)
+{
+    cout << "ID\tNOMBRE\tEDAD\tCASADO" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << per[i].id << "\t";
+        cout << per[i].nombre << "\t";
+        cout << per[i].edad << "\t";
+        (per[i].casado) ? cout << "SI" : cout << "NO";
+    }
 }
 
-void jugar() {
-    string palabras[5], palabra, oculta;
-    int intentos = 0, maxIntentos = 7;
-    char letra;
-    bool acierto;
-
-    int op = opciones();
-    if (op == 1) deportes(palabras);
-    else if (op == 2) animales(palabras);
-    else frutas(palabras);
-
-    palabra = palabraAleatoria(palabras);
-    oculta = string(palabra.length(), 'X');  
-
-    while (intentos < maxIntentos) {
-        acierto = false;
-        cout << "\nAdivine la palabra: " << oculta << "\nIntentos restantes: " << (maxIntentos - intentos) << endl;
-        mostrarAhorcado(intentos);
-        cout << "Ingrese una letra: ";
-        cin >> letra;
-
-        for (int i = 0; i < palabra.length(); i++) {
-            if (palabra[i] == letra) {
-                oculta[i] = letra;
-                acierto = true;
-            }
+persona buscarPersona(persona per[], int n, int id)
+{
+    persona founded;
+    for (int i = 0; i < n; i++)
+    {
+        if (per[i].id == id)
+        {
+            founded = per[i];
+            return founded;
         }
+    }
+    return founded;
+}
 
-        if (!acierto) intentos++;
-
-        if (oculta == palabra) {
-            cout << "¡Felicidades! Usted adivinó la palabra.\n";
-            break;
+persona buscarPersonaPorNombre(persona per[], int n, string nombres)
+{
+    int i, j = 0, id;
+    persona encontrados[10];
+    persona econtrada;
+    for (int i = 0; i < n; i++) // Se recorre correctamente el array
+    {
+        if (per[i].nombre.find(nombres) != string::npos)
+        {
+            encontrados[j] = per[i];
+            j++;
         }
     }
 
-    if (intentos == maxIntentos) {
-        cout << "Perdiste. La palabra era: " << palabra << endl;
-        mostrarAhorcado(intentos);
+    cout << "Cantidad de personas encontradas: " << j << endl;
+    for (int i = 0; i < j; i++)
+    {
+        cout << encontrados[i].id << "\t" << endl;
+        cout << encontrados[i].nombre << "\t" << endl;
+        cout << encontrados[i].edad << "\t" << endl;
+        (encontrados[i].casado) ? cout << "SI" << endl : cout << "NO" << endl;
     }
-
-    string respuesta;
-    cout << "Desea jugar otra vez? (s/n): ";
-    cin >> respuesta;
-    if (respuesta == "s") jugar();
+    cout << "Ingrese el ID de la persona a buscar: ";
+    cin >> id;
+    econtrada = buscarPersona(persona, (j + 1), id);
+    return (j > 0) ? encontrados[0] : persona{}; // Devuelve la primera coincidencia o una persona vacía
 }
 
-int main() {
-    cout << "¡Bienvenido al juego del ahorcado!\n";
-    jugar();
+int main()
+{
+    int np, id;
+    string nombre;
+    cout << "Ingrese la cantidad de personas: ";
+    cin >> np;
+    cin.ignore();
+
+    persona personas[np];
+    ingresaDatosRegistro(personas, np);
+    mostraDatosRegistro(personas, np);
+
+    cout << "\nIngrese nomre de la persina a buscar";
+    getline(cin, nombre);
+
+    persona founded = buscarPersonaPorNombre(personas, np, nombre);
+    if (founded.id == 0)
+    {
+        cout << "Persona no encontrada" << endl;
+    }
+    else
+    {
+        cout << "ID\tNOMBRE\tEDAD\tCASADO" << endl;
+        cout << founded.id << "\t";
+        cout << founded.nombre << "\t";
+        cout << founded.edad << "\t";
+        (founded.casado) ? cout << "SI" << endl : cout << "NO" << endl;
+    }
     return 0;
 }
