@@ -79,7 +79,7 @@ persona buscarPersonaPorNombre(persona per[], int n, string nombres)
     }
     cout << "Ingrese el ID de la persona a buscar: ";
     cin >> id;
-    econtrada = buscarPersona(persona, (j + 1), id);
+    //econtrada = buscarPersona(persona, (j + 1), id);
     return (j > 0) ? encontrados[0] : persona{}; // Devuelve la primera coincidencia o una persona vacía
 }
 
