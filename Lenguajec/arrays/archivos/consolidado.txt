@@ -1,0 +1,31 @@
+Cantidad total de cada artículo:
+Artículo 1: 5
+Artículo 2: 15
+Artículo 3: 8
+Artículo 4: 3
+Artículo 5: 2
+Artículo 6: 4
+Artículo 7: 20
+Artículo 8: 6
+Artículo 9: 10
+Artículo 10: 7
+Artículo 11: 3
+Artículo 12: 2
+Artículo 13: 12
+Artículo 14: 5
+Artículo 15: 6
+Artículo 16: 4
+Artículo 17: 1
+Artículo 18: 3
+Artículo 19: 8
+Artículo 20: 7
+
+Cantidad de artículos en la sucursal Sur: 42
+Cantidad del artículo Teclado en la sucursal Norte: 10
+
+Recaudación total de cada sucursal:
+Norte: 7470
+Sur: 5880
+
+Recaudación total de la empresa: 21855
+Sucursal con mayor recaudación: Norte
